@@ -1,11 +1,5 @@
-/** @type {any} Your Key to secure POST requests with a token. null if allowed */
-const POSTKEY = null;
-
-/** @type {any} Your Key to secure DELETE requests with a token. null if allowed */
-const DELETEKEY = null;
-
-/** You can edit this variable to change KV Name Binding */
-const KV_NAMESPACE = TUHIN;
+/** @type {any} Your Key to secure requests with a token. null if allowed */
+const KEY = 'mykey';
 
 /**
  * Handle the request
@@ -37,7 +31,7 @@ async function handleRequest(request) {
       }
       case "POST": {
         /**  Handle POST */
-        if (POSTKEY && getUrlParam("key") !== POSTKEY) {
+        if (KEY && getUrlParam("key") !== KEY) {
           /**  Unauthorized */
           return jsonResponse({
             data: { status: false, msg: "Invalid key, Unauthorized!" },
@@ -73,25 +67,33 @@ async function handleRequest(request) {
             },
           });
         } else {
-          /** @type {object} Retrive payload from ID */
-          var getData = await KV_NAMESPACE.get(path.substring(1));
-          if (getData) {
+          if (KEY && getUrlParam("key") !== KEY) {
+            /**  Unauthorized */
             return jsonResponse({
-              data: JSON.parse(getData),
+              data: { status: false, msg: "Invalid key, Unauthorized!" },
+              status: 403,
             });
           } else {
-            return jsonResponse({
-              data: {
-                status: false,
-                msg: "Not Found",
-              },
-              status: 404,
-            });
+            /** @type {object} Retrive payload from ID */
+            var getData = await JSONBASE.get(path.substring(1));
+            if (getData) {
+              return jsonResponse({
+                data: JSON.parse(getData),
+              });
+            } else {
+              return jsonResponse({
+                data: {
+                  status: false,
+                  msg: "Not Found",
+                },
+                status: 404,
+              });
+            }
           }
         }
       }
       case "DELETE": {
-        if (DELETEKEY && getUrlParam("key") !== DELETEKEY) {
+        if (KEY && getUrlParam("key") !== KEY) {
           /**  Unauthorized */
           return jsonResponse({
             data: { status: false, msg: "Invalid key, Unauthorized!" },
@@ -100,7 +102,7 @@ async function handleRequest(request) {
         } else {
           /**  Authorized to delete payload */
 
-          await KV_NAMESPACE.delete(path.substring(1));
+          await JSONBASE.delete(path.substring(1));
           return jsonResponse({
             data: {
               status: true,
@@ -154,7 +156,7 @@ async function savePayload(payload) {
   if (!payload._id)
     payload._id =
       new Date().getTime() + Math.random().toString(36).substring(9);
-  await KV_NAMESPACE.put(payload._id, JSON.stringify(payload));
+  await JSONBASE.put(payload._id, JSON.stringify(payload));
   return payload;
 }
 
