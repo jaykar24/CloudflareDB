@@ -52,7 +52,7 @@ with Body
 
 ```
 Method: GET
-URL: https://<your-app>.workers.dev/<_id>
+URL: https://<your-app>.workers.dev/<_id>?key=<post-key>
 ```
 
 - Response:
@@ -96,14 +96,13 @@ URL (Not Secured): https://<your-app>.workers.dev/<_id>
 - Now go back to worker main page, here you will see that your created worker listed there, click on that.
 - Click on <code>Settings</code>
 - In <code>KV Namespace Bindings</code> section click on <code>Add Binding</code>
-- Write <code>TUHIN</code> in Variable name & select your recently created Namespace for KV namespace.
+- Write <code>JSONBASE</code> in Variable name & select your recently created Namespace for KV namespace.
 - You just made your Cloudflare DB, Now Read the API Endpoint and use it in your Project 😪
 
 ### *Secure with Token :*
-*You can impliment token based authentication system for POST and DELETE requests*
+*You can impliment token based authentication system for requests*
 
-- Write your key in <code>POSTKEY</code> to secure POST requests with a Token (Line No: 12)
-- Write your key in <code>DELETEKEY</code> to secure DELETE requests with a Token (Line No: 13)
+- Write your key in <code>KEY</code> to secure requests with a Token (Line No: 2)
 
 ### *Note for Kangers :*
 
