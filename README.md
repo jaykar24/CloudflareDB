@@ -22,7 +22,7 @@
 ```
 Method: POST
 Content-Type: application/json
-URL (Secured with Token): https://<your-app>.workers.dev/?key=<post-key>
+URL (Secured with Token): https://<your-app>.workers.dev/?key=<key>
 URL (Not Secured): https://<your-app>.workers.dev/
 BODY: Json Data (Not Parsed)
 ```
@@ -64,7 +64,7 @@ curl -X POST 'https://example.example.workers.dev/?key=examplekey' \
 
 ```
 Method: GET
-URL: https://<your-app>.workers.dev/<_id>?key=<post-key>
+URL: https://<your-app>.workers.dev/<_id>?key=<key>
 ```
 
 - Response:
@@ -91,7 +91,7 @@ curl 'https://example.example.workers.dev/example?key=examplekey'
 
 ```
 Method: DELETE
-URL (Secured with Token): https://<your-app>.workers.dev/<_id>?key=<delete-key>
+URL (Secured with Token): https://<your-app>.workers.dev/<_id>?key=<key>
 URL (Not Secured): https://<your-app>.workers.dev/<_id>
 ```
 
