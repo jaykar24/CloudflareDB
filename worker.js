@@ -1,5 +1,8 @@
-/** @type {any} Your Key to secure requests with a token. null if allowed */
+/** @type {any} Your Key to secure POST & DELETE requests with a token. null if allowed */
 const KEY = 'mykey';
+
+/** @type {any} Your Key to secure GET requests with a token. null if allowed */
+const GETKEY = 'mykey';
 
 /**
  * Handle the request
@@ -67,7 +70,7 @@ async function handleRequest(request) {
             },
           });
         } else {
-          if (KEY && getUrlParam("key") !== KEY) {
+          if (GETKEY && getUrlParam("key") !== GETKEY) {
             /**  Unauthorized */
             return jsonResponse({
               data: { status: false, msg: "Invalid key, Unauthorized!" },

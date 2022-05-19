@@ -127,7 +127,7 @@ curl -X DELETE 'https://example.example.workers.dev/example?key=examplekey'
 
 *You can impliment token based authentication system for requests*
 
-- Write your key in <code>KEY</code> to secure requests with a Token (Line No: 2)
+- Write your key in <code>KEY</code> & <code>GETKEY</code> to secure requests with a Token (Line No: 2, 5)
 
 ### *Note for Kangers :*
 
