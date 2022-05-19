@@ -6,6 +6,7 @@
 <br><br>
 
 ### *Features :*
+
 - Globally Available
 - Lowest Latancy
 - Serverless
@@ -27,6 +28,7 @@ BODY: Json Data (Not Parsed)
 ```
 
 - Response:
+
 ```
 {
     "status": true,
@@ -37,7 +39,9 @@ BODY: Json Data (Not Parsed)
     }
 }
 ```
+
 - Set an ID manually:
+
 ```
 Send this 👇
 
@@ -46,7 +50,15 @@ Send this 👇
 with Body
 ```
 
-#### 2. Get a saved Data:
+- Bash example
+
+```
+curl -X POST 'https://example.example.workers.dev/?key=examplekey' \
+    -d '{"_id":"example","value": "example"}' \
+    -H "Content-Type: application/json"
+```
+
+#### 2. Get a saved Data
 
 - Request:
 
@@ -67,7 +79,13 @@ URL: https://<your-app>.workers.dev/<_id>?key=<post-key>
 }
 ```
 
-#### 3. Delete a Data:
+- Bash example
+
+```
+curl 'https://example.example.workers.dev/example?key=examplekey' 
+```
+
+#### 3. Delete a Data
 
 - Request:
 
@@ -86,6 +104,12 @@ URL (Not Secured): https://<your-app>.workers.dev/<_id>
 }
 ```
 
+- Bash example
+
+```
+curl -X DELETE 'https://example.example.workers.dev/example?key=examplekey' 
+```
+
 ### *Deploy :*
 
 - Open [Cloudflare Worker](https://workers.cloudflare.com "Cloudflare Worker") Page
@@ -100,6 +124,7 @@ URL (Not Secured): https://<your-app>.workers.dev/<_id>
 - You just made your Cloudflare DB, Now Read the API Endpoint and use it in your Project 😪
 
 ### *Secure with Token :*
+
 *You can impliment token based authentication system for requests*
 
 - Write your key in <code>KEY</code> to secure requests with a Token (Line No: 2)
@@ -109,13 +134,13 @@ URL (Not Secured): https://<your-app>.workers.dev/<_id>
 Kanging will not make you a developer. So, don't be a kanger ⚠
 
 ### *License & Copyright :*
+
 - This Project is [Apache-2.0](https://github.com/cachecleanerjeet/CloudflareDB/blob/main/LICENSE) Licensed
 - Copyright 2021 by [Tuhin Kanti Pal](https://github.com/cachecleanerjeet)
 
 ### *Connect :*
+
 - [Channel](https://telegram.dog/tprojects)
 - [Support Group](https://telegram.dog/t_projects)
 
-
 ### Thanks to Cloudflare to give these services for free 🥰
-
