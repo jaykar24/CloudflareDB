@@ -1,8 +1,8 @@
 /** @type {any} Your Key to secure POST & DELETE requests with a token. null if allowed */
-const KEY = 'mykey';
+const KEY = 'love';
 
 /** @type {any} Your Key to secure GET requests with a token. null if allowed */
-const GETKEY = 'mykey';
+const GETKEY = 'love';
 
 /**
  * Handle the request
